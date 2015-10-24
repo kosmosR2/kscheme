@@ -40,20 +40,10 @@ func (p *list)getLastNode()*listNode{
 	return pointer
 }
 
-func (p *list)getHeadNode()*listNode{
-	return p.fristNode;
-}
-func (p *listNode)getHeadNode()*listNode{
-	return p;
-}
 
-type listOrNode interface{
-	getHeadNode()*listNode
-}
-func (p *list)concat(lon listOrNode){
-	p.getLastNode().nextNode = lon.getHeadNode();
-	
-	fmt.Println(p);
+
+func (p *list)concat(node *listNode){
+	p.getLastNode().nextNode = node
 }
 func (p *list)String()string{
 	if(p.getLength() == 0){
@@ -79,7 +69,8 @@ func main(){
 	l := &list{n1}
 
 	fmt.Println(l.getLastNode().nodeValue)
-	l.concat(&listNode{nodeValue:&variable{133,0}});
+	n2 := &listNode{nodeValue:&variable{133,0}}
+	l.concat(n2)
 	fmt.Println(l.getLength());
 	fmt.Println(l);
 	fmt.Println(l.fristNode.nodeValue.variableValue)
