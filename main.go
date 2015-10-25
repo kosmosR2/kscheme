@@ -67,10 +67,7 @@ func sprintf(pointer *listNode)string{
 func main(){
 	n1 := &listNode{nodeValue:&variable{233,0}}
 	l := &list{n1}
-
-	fmt.Println(l.getLastNode().nodeValue)
-	n2 := &listNode{nodeValue:&variable{133,0}}
-	l.concat(n2)
+	*n1.nextNode = listNode{nodeValue:&variable{233,0}}
 	fmt.Println(l.getLength());
 	fmt.Println(l);
 	fmt.Println(l.fristNode.nodeValue.variableValue)
